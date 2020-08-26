@@ -88,87 +88,83 @@ function App() {
   return (
     <div className="app">
       {/*Header*/}
-      <Modal open={open} onClose={() => setOpen(false)}>
-        {
-          <div style={modalStyle} className={classes.paper}>
-            <form className="app__signUp">
-              <center>
-                <h4>Instagram</h4>
-              </center>
-              <input
-                type="username"
-                placeholder="username"
-                value={UserName}
-                onChange={(e) => setUsername(e.target.value)}
-              />
-              <input
-                type="email"
-                placeholder="email"
-                value={Email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <input
-                type="password"
-                placeholder="password"
-                value={Password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <br />
+      <div className="Model">
+        <Modal open={open} onClose={() => setOpen(false)}>
+          {
+            <div style={modalStyle} className={classes.paper}>
+              <form className="app__signUp">
+                <center>
+                  <h4>Instagram</h4>
+                </center>
+                <input
+                  type="username"
+                  placeholder="username"
+                  value={UserName}
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+                <input
+                  type="email"
+                  placeholder="email"
+                  value={Email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <input
+                  type="password"
+                  placeholder="password"
+                  value={Password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <br />
 
-              <Button
-                color="primary"
-                variant="contained"
-                type="submit"
-                onClick={signUp}
-              >
-                Sign-Up
-              </Button>
-            </form>
-          </div>
-        }
-      </Modal>
-      <Modal open={openSignIn} onClose={() => setOpenSignIn(false)}>
-        {
-          <div style={modalStyle} className={classes.paper}>
-            <form className="app__signUp">
-              <center>
-                <h4>Instagram</h4>
-              </center>
-              <input
-                type="email"
-                placeholder="email"
-                value={Email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <input
-                type="password"
-                placeholder="password"
-                value={Password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <br />
+                <Button
+                  color="primary"
+                  variant="contained"
+                  type="submit"
+                  onClick={signUp}
+                >
+                  Sign-Up
+                </Button>
+              </form>
+            </div>
+          }
+        </Modal>
+        <Modal open={openSignIn} onClose={() => setOpenSignIn(false)}>
+          {
+            <div style={modalStyle} className={classes.paper}>
+              <form className="app__signUp">
+                <center>
+                  <h4>Instagram</h4>
+                </center>
+                <input
+                  type="email"
+                  placeholder="email"
+                  value={Email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <input
+                  type="password"
+                  placeholder="password"
+                  value={Password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <br />
 
-              <Button
-                type="submit"
-                color="default"
-                variant="contained"
-                onClick={signIn}
-              >
-                Sign In
-              </Button>
-            </form>
-          </div>
-        }
-      </Modal>
+                <Button
+                  type="submit"
+                  color="default"
+                  variant="contained"
+                  onClick={signIn}
+                >
+                  Sign In
+                </Button>
+              </form>
+            </div>
+          }
+        </Modal>
+      </div>
+
       <div className="app__header">
         <h3>BubbleGram</h3>
-        <div className="app__upload">
-          {user?.displayName ? (
-            <Upload username={user.displayName} />
-          ) : (
-            <h5>Sign-In to Upload</h5>
-          )}
-        </div>
         {user ? (
           <Button
             color="secondary"
@@ -194,6 +190,13 @@ function App() {
               Sign Up
             </Button>
           </div>
+        )}
+      </div>
+      <div className="app__upload">
+        {user?.displayName ? (
+          <Upload username={user.displayName} />
+        ) : (
+          <h5>Sign-In to Upload</h5>
         )}
       </div>
       <div className="app__posts">

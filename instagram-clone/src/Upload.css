@@ -1,11 +1,6 @@
-*{
-    margin:0;
-}
 .imageUpload{
     display: flex;
     flex-direction: row;
-}
-
-Button{
-    margin:20%;
+   
+    
 }

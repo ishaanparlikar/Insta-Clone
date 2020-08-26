@@ -35,8 +35,8 @@ input{
 
 .app__upload{
 
-  display:block;
- object-fit: contain;
+display:inline;
+flex-direction: row;
 }
 
 .app__posts{
