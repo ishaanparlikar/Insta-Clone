@@ -4,7 +4,8 @@ import Posts from "./Posts";
 import { db, auth } from "./firebase";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
-import { Button, Input } from "@material-ui/core";
+import { Button, Input, InstagramIcon } from "@material-ui/core";
+import Upload from "./Upload";
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -120,7 +121,7 @@ function App() {
                 type="submit"
                 onClick={signUp}
               >
-                SignUp
+                Sign-Up
               </Button>
             </form>
           </div>
@@ -160,42 +161,51 @@ function App() {
         }
       </Modal>
       <div className="app__header">
-        <h4>Instagram </h4>
-      </div>
-      {user ? (
-        <Button
-          color="secondary"
-          variant="contained"
-          onClick={() => auth.signOut()}
-        >
-          Logout
-        </Button>
-      ) : (
-        <div className="app__loginButton">
-          <Button
-            color="primary"
-            variant="contained"
-            onClick={() => setOpenSignIn(true)}
-          >
-            Sign In
-          </Button>
-          <Button
-            color="default"
-            variant="contained"
-            onClick={() => setOpen(true)}
-          >
-            Sign Up
-          </Button>
+        <h3>BubbleGram</h3>
+        <div className="app__upload">
+          {user?.displayName ? (
+            <Upload username={user.displayName} />
+          ) : (
+            <h5>Sign-In to Upload</h5>
+          )}
         </div>
-      )}
-      {/*Posts*/}
-      {posts.map((posts) => (
-        <Posts
-          userName={posts.userName}
-          caption={posts.caption}
-          imageUrl={posts.imageUrl}
-        />
-      ))}
+        {user ? (
+          <Button
+            color="secondary"
+            variant="contained"
+            onClick={() => auth.signOut()}
+          >
+            Logout
+          </Button>
+        ) : (
+          <div className="app__loginButton">
+            <Button
+              color="primary"
+              variant="contained"
+              onClick={() => setOpenSignIn(true)}
+            >
+              Sign In
+            </Button>
+            <Button
+              color="default"
+              variant="contained"
+              onClick={() => setOpen(true)}
+            >
+              Sign Up
+            </Button>
+          </div>
+        )}
+      </div>
+      <div className="app__posts">
+        {/*Posts*/}
+        {posts.map((posts) => (
+          <Posts
+            userName={posts.userName}
+            caption={posts.caption}
+            imageUrl={posts.imageUrl}
+          />
+        ))}
+      </div>
     </div>
   );
 }

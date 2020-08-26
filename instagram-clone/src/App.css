@@ -6,20 +6,23 @@
   background-color: #fafafa;
   height: 100vh;
 }
-
+.app__header>h3{
+  object-fit: contain;
+  color: lightcoral;
+}
 .app__header{
   background-color: white;
   object-fit: contain;
   border-bottom: 1px solid lightgray;
   padding:20px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .app__header>Button{
   align-items: center;
 
 }
-
-
 .app__signUp{
   display: flexbox;
   text-align: center;
@@ -28,4 +31,14 @@
 input{
   margin:5px;
   padding: 15px;
+}
+
+.app__upload{
+
+  display:block;
+ object-fit: contain;
+}
+
+.app__posts{
+  padding:10px;
 }
