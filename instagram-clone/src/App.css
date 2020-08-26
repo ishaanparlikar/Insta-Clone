@@ -12,13 +12,18 @@
   object-fit: contain;
   border-bottom: 1px solid lightgray;
   padding:20px;
-  
 }
+
+.app__header>Button{
+  align-items: center;
+
+}
+
 
 .app__signUp{
   display: flexbox;
+  text-align: center;
   flex-direction: column;
-  
 }
 input{
   margin:5px;
