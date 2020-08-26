@@ -12,6 +12,15 @@
   object-fit: contain;
   border-bottom: 1px solid lightgray;
   padding:20px;
-  width: 100%;
+  
 }
 
+.app__signUp{
+  display: flexbox;
+  flex-direction: column;
+  
+}
+input{
+  margin:5px;
+  padding: 15px;
+}
