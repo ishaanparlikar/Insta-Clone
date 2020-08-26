@@ -3,52 +3,39 @@ import "./App.css";
 import Posts from "./Posts";
 import { db } from "./firebase";
 
+
+
 function App() {
   const [posts, setPosts] = useState([]);
   //useEffect->Runs code on specific condition
   useEffect(() => {
-    db.collection("posts").onSnapshot((snapshot) => {
-      //Everytime new post is added this code will be fired
-      setPosts(snapshot.docs.map((doc) => doc.data()));
-    })}, []);
+    db.collection('posts').onSnapshot(snapshot => {
+      setPosts(snapshot.docs.map(doc => ({
+        id: doc.id, posts: doc.data()
+      })));
+    })
+  }, []);
+
   return (
-    <div className="app">
+
+    < div className="app" >
       {/*Header*/}
-      <div className="app__header">
+      < div className="app__header" >
         <h4>Instagram</h4>
-      </div>
+
+      </div >
       {/*Posts*/}
-
-      {posts.map((posts) => (
-        <Posts
-          userName={posts.userName}
-          caption={posts.caption}
-          imageUrl={posts.imageUrl}
-        />
-      ))}
-
-      {/* <Posts
-        userName="ishan"
-        caption="Random String 1"
-        imageUrl="https://picsum.photos/200"
-      />
-      <Posts
-        userName="ishan"
-        caption="Random String 1"
-        imageUrl="https://picsum.photos/200"
-      />
-      <Posts
-        userName="ishan"
-        caption="Random String 1"
-        imageUrl="https://picsum.photos/200"
-      />
-      <Posts
-        userName="ishan"
-        caption="Random String 1"
-        imageUrl="https://picsum.photos/200"
-      /> */}
-      {/*Header*/}
-    </div>
+      {
+        posts.map(({ id, posts }) => (
+          <Posts
+            key={id}
+            userName={posts.userName}
+            caption={posts.caption}
+            imageUrl={posts.imageUrl}
+          />
+        ))
+      }
+    </div >
   );
 }
 
