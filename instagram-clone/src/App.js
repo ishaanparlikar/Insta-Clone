@@ -164,7 +164,7 @@ function App() {
       </div>
 
       <div className="app__header">
-        <h3>BubbleGram</h3>
+        <h3>KiloGram</h3>
         {user ? (
           <Button
             color="secondary"

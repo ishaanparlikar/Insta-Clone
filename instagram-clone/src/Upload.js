@@ -53,27 +53,33 @@ function Upload({ username }) {
 
   return (
     <div className="imageUpload">
-      {/*Image Upload*/}
-      <input
-        type="text"
-        placeholder="caption"
-        onChange={(event) => setCaption(event.target.value)}
-        value={caption}
-        className="caption"
-      />
-      <br />
-      <input type="file" accept="image/*" onChange={handleChange} />
-      <br />
-      <progress value={progress} max="100" />
-      <Button
-        onClick={handleUpload}
-        color="primary"
-        variant="contained"
-        type="submit"
-      >
-        upload
-      </Button>
-      {/*Caption*/}
+      <div className="file__progress">
+        <div className="input__file">
+          <input type="file" accept="image/*" onChange={handleChange} />
+        </div>
+        <div className="progress">
+          <progress value={progress} max="100" />
+        </div>
+        <div className="input__caption">
+          <input
+            type="text"
+            placeholder="caption"
+            onChange={(event) => setCaption(event.target.value)}
+            value={caption}
+            className="caption"
+          />
+        </div>
+      </div>
+      <div className="button">
+        <Button
+          onClick={handleUpload}
+          color="primary"
+          variant="contained"
+          type="submit"
+        >
+          upload
+        </Button>
+      </div>
     </div>
   );
 }

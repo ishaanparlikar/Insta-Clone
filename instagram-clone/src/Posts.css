@@ -1,5 +1,5 @@
 .posts{
-    max-width: 500px;
+   
     background-color:white;
     border: 1px solid lightblue;
     margin-bottom: 20px;
@@ -7,6 +7,7 @@
 
 .posts__image{
     width: 100%;
+    
     object-fit: contain;
     border:1px solid lightcoral;
 }
@@ -18,7 +19,7 @@
 .posts__header{
     display: flex;
     align-items: center;
-    padding:20px 10px;
+    padding:10px 10px;
 }
 .post__avatar{
     margin-right: 10px;

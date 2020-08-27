@@ -1,6 +1,21 @@
 .imageUpload{
-    display: flex;
-    flex-direction: row;
-   
     
+    width: 50;
+    position: relative;
+    border: 1px solid lightblue;
+    margin:10px;
+    
+}
+.file__progress{
+    position: relative;
+    left:30%;
+}
+
+
+.input__caption{
+    left: 35%;
+}
+
+.button{
+    padding-left:35%;
 }
